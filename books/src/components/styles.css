@@ -1,0 +1,18 @@
+h1{
+    background-color: cadetblue;
+    margin-bottom: 0.1px;
+}
+.Navbar{
+    padding: 5px;
+    margin-top: 0px;
+    background-color:beige;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+a{
+    cursor: pointer;
+    color:black;
+    text-decoration: none;
+    
+}

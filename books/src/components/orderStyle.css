@@ -1,0 +1,16 @@
+li{
+    list-style-type: none;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 0.5px ;
+    border-color: cornsilk;
+    margin: 5px;
+}
+
+li:hover{
+    font-size: 25px;
+    font-style: italic;
+    border-radius: 0.5px ;
+    border-color: cornsilk;
+    background-color:cornsilk;
+}
