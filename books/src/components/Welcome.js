@@ -5,6 +5,7 @@ import Order from '../components/Oder'
 import Sell from '../components/Sell'
 import Owner from '../components/Owner'
 import withCounter from '../components/withCounter'
+import Feedback from './Feedback'
 
 
 
@@ -15,6 +16,7 @@ function Welcome(props) {
     const [sell, setSell]=useState(false)
     const [owner, setOwner]=useState(true)
     const [modal, showModal]=useState(false)
+    const [fb,showFb]=useState(false)
     const refvar=useRef(null)
    
 
@@ -24,6 +26,17 @@ function Welcome(props) {
         setSell(false)
         setOrder(false)
         setOwner(true)
+        showFb(false)
+        console.log("after home", home)
+    }
+
+    const fb1 = () =>{
+        console.log("before home", home)
+        setHome(false)
+        setSell(false)
+        setOrder(false)
+        setOwner(true)
+        showFb(true)
         console.log("after home", home)
     }
 
@@ -34,6 +47,7 @@ function Welcome(props) {
         setHome(false)
         setSell(false)
         setOwner(false)
+        showFb(false)
         console.log("after order", order)
         
     }
@@ -41,6 +55,7 @@ function Welcome(props) {
         setOwner(false)
         showModal(true)
         setHome(false)
+        showFb(false)
     }
     const handleCloseModal = () => {
         setOwner(true)
@@ -52,6 +67,7 @@ function Welcome(props) {
         setOwner(false)
         setOrder(false)
         setHome(false)
+        showFb(false)
         console.log("after sell", sell)
     }
     if (props.name === ''){
@@ -64,11 +80,13 @@ function Welcome(props) {
                 | <a href="#" onClick={showHome}>Home</a> |
                 <a href="#" onClick={showOrder}>Order Books</a> |
                 <a href="#" onClick={showSell}>Sell a Book</a> |
+                <a href="#" onClick={fb1}>Feedback</a> |
             </nav>
                    
            
     { home &&  <Home /> }
     { order &&  <Order i={props.c} />  }
+    {fb && <Feedback/>}
     { sell &&  <Sell i={props.c} ref={refvar}/> }    
     {owner && <button onClick={showOwner}>Owner Info</button>} 
     {modal && <Owner onClose={handleCloseModal}>
