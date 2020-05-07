@@ -13,6 +13,7 @@ function Feedback() {
         name: yup.string().required('!Required!'),
         email: yup.string().email('!invalid email!').required('!Required!'),
         comments: yup.string().required('!Required!')
+        //used instead of validate
     })
 
     const formstate = useFormik({
