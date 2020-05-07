@@ -28,8 +28,6 @@ function Feedback() {
         validationSchema
     })
 
-    console.log(formstate.errors)
-
     return (
         <div className='body'>
 
@@ -37,20 +35,20 @@ function Feedback() {
 
             <div className='container'>
             <label  htmlFor='name'>Name</label>
-            <input type='text' id='name' name='name' value={formstate.values.name} onChange={formstate.handleChange} />
-            {formstate.errors.name? <span>{formstate.errors.name}</span> : null}
+            <input type='text' id='name' name='name' value={formstate.values.name} onBlur={formstate.handleBlur} onChange={formstate.handleChange} />
+            {formstate.errors.name && formstate.touched.name? <span>{formstate.errors.name}</span> : null}
             </div>
 
             <div className='container'>
             <label  htmlFor='email'>Email</label>
-            <input type='text' id='email' name='email' value={formstate.values.email} onChange={formstate.handleChange} />
-            {formstate.errors.email ? <span>{formstate.errors.email}</span> : null}
+            <input type='text' id='email' name='email' value={formstate.values.email} onBlur={formstate.handleBlur} onChange={formstate.handleChange} />
+            {formstate.errors.email && formstate.touched.email ? <span>{formstate.errors.email}</span> : null}
             </div>
 
             <div className='container'>
             <label  htmlFor='comments'>Comments</label>
-            <input type='text' id='comments' name='comments' value={formstate.values.comments} onChange={formstate.handleChange} />
-            {formstate.errors.comments? <span>{formstate.errors.comments}</span> : null}
+            <input type='text' id='comments' name='comments' value={formstate.values.comments} onBlur={formstate.handleBlur} onChange={formstate.handleChange} />
+            {formstate.errors.comments && formstate.touched.comments? <span>{formstate.errors.comments}</span> : null}
             </div>
 
             <div className='container'>
