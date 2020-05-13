@@ -1,7 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react'
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import {CopyRightsContext} from '../App'
 import axios from 'axios'
 import './modalStyle.css'
+
+toast.configure()
 
 const Sell = React.forwardRef((props, ipref) => {
 
@@ -28,8 +32,10 @@ const Sell = React.forwardRef((props, ipref) => {
     const post = (e) => {
         e.preventDefault()
         axios.post('http://jsonplaceholder.typicode.com/posts', {id,body,title})
-        .then(response=>{console.log(response)
-        alert('Post operation done successfully')})
+        .then(response=>{
+            console.log(response)
+        toast('Post operation done successfully')
+    })
         .catch(error=>{console.log(error)})
         setId('')
         setTitle('')

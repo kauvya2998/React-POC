@@ -1,12 +1,14 @@
-import React , {useContext} from 'react'
+import React , {useState, useContext} from 'react'
 import {CopyRightsContext} from '../App'
+import Tippy from '@tippy.js/react' 
 import {useFormik} from 'formik'
 import * as yup from 'yup'
 import './feedStyle.css'
-
+import  'tippy.js/dist/tippy.css'
 
 
 function Feedback() {
+
     const copy=useContext(CopyRightsContext)
 
     const validationSchema = yup.object({
@@ -52,11 +54,12 @@ function Feedback() {
             </div>
 
             <div className='container'>
+            <Tippy content='Submit your Feedback' >
             <button type='submit'>Comment</button>
+            </Tippy>
             </div>
-
             </form>
-
+             
             <p className="context">CopyRights Info : {copy}</p>
 
         </div>
